@@ -1,13 +1,15 @@
 :root {
+  --darkgrey: #808080;
   --pink: #a4a4a4;
   --bg: #478778;
   --shadow: 0 2px 2px rgb(0 0 0/0.5);
+  --newshadow: 0 2px 2px #eee8aa;
 }
 
 body {
   font-size: 1.2rem;
   font-family: "Work Sans", sans-serif;
-  min-height: 4000px;
+  /* min-height: 4000px; */
 }
 
 .hero::before {
@@ -17,9 +19,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(img/floral-ornaments.jpg);
+  /* background-image: url(img/elena.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   z-index: -1;
   /* filter: grayscale(); */
   filter: opacity(0.6);
@@ -28,18 +30,24 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
+  height: 100%;
   /* background-color: var(--bg); */
-  color: #daa520;
+  /* color: #daa520; */
+  color: var(--pink);
+  background-image: url(img/elena.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .hero h1,
 .hero h4,
 .hero p {
-  text-shadow: var(--shadow);
+  text-shadow: var(--newshadow);
 }
 
 .hero h1 {
-  font-family: "Sacramento", cursive;
+  /* font-family: "Sacramento", cursive; */
+  font-family: "Great Vibes", cursive;
   font-size: 6rem;
 }
 
@@ -86,10 +94,11 @@ body {
 .home {
   background-image: url(img/top-view.jpg);
   background-size: cover;
+  background-position: center;
   min-height: 100vh;
-  margin-top: -6rem;
-  /* padding-top: 15rem; */
+  /* margin-top: -6rem; */
   padding-top: 10rem;
+  /* padding-top: 10rem; */
   padding-bottom: 5rem;
 }
 
@@ -122,7 +131,8 @@ body {
 
 .home .couple h3 {
   font-family: "Sacramento";
-  font-size: 2.4rem;
+  font-size: 2.5rem;
+  font-weight: 800;
   color: var(--pink);
 }
 
@@ -148,7 +158,8 @@ body {
 }
 
 .divider {
-  margin-top: 55px;
+  margin-top: 15px;
+  padding-top: 15px;
   padding-bottom: 10px;
   border-top: solid 1px #444;
   width: 100px;
@@ -162,8 +173,12 @@ body {
   background-size: cover;
   background-position: center;
   color: white;
-  padding-top: 10rem;
-  padding-bottom: 8rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.info h5 {
+  /* font-family: "Great Vibes", cursive; */
 }
 
 .info .alamat {
@@ -185,6 +200,7 @@ body {
   border-bottom: 1px solid #999;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  padding: 30px;
 }
 
 .info .card-body {
@@ -209,8 +225,8 @@ body {
 .gallery p,
 .rsvp p,
 .gifts p {
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .story span,
@@ -222,6 +238,12 @@ body {
   letter-spacing: 1px;
   display: block;
   margin-bottom: 1rem;
+}
+
+.gifts {
+  background-image: url(featured-image.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .timeline {
@@ -325,16 +347,23 @@ body {
 }
 
 .rsvp {
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
+  background-image: url(img/kerri.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: opacity(0.8);
 }
 
 .rsvp h2 {
-  font-size: 4.5rem;
-  color: white;
+  font-size: 4rem;
+  color: var(--darkgrey);
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
 }
 
 .rsvp form label {
-  color: white;
+  color: var(--darkgrey);
+  font-weight: 600;
 }
 
 .rsvp button {
@@ -388,6 +417,19 @@ footer li {
   justify-content: center;
   align-items: center;
   line-height: 0;
+}
+
+.animatedDiv {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 3s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes rotating {

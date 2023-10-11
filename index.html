@@ -10,12 +10,14 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:wght@100;300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Sacramento&family=Work+Sans:wght@100;300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <!--simplyCountdown-->
     <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
     <script src="countdown/simplyCountdown.min.js"></script>
@@ -33,17 +35,17 @@
     >
       <main>
         <p>The Wedding of</p>
-        <h1>Benardi & Yohanna</h1>
-        <!-- <p>Will hold a wedding reception in:</p> -->
+        <h1 class="animatedDiv">Benardi & Yohanna</h1>
+        <!-- <p>Will hold a wedding reception in:</p> --><br><br>
         <h4>Dear <span></span></h4>
-        <h5>You are invited.</h5>
+        <label>You are invited.</label><br>
         <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()"
-          >Open Invitation</a
+          ><i class="bi bi-envelope-open"></i> Open Invitation</a
         >
       </main>
     </section>
 
-    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
+    <!-- <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
       <div class="container">
         <a class="navbar-brand" href="#">BenYo</a>
         <button
@@ -74,18 +76,18 @@
           <div class="offcanvas-body">
             <div class="navbar-nav ms-auto">
               <a class="nav-link" href="#home">Home</a>
-              <a class="nav-link" href="#info">Info</a>
+              <a class="nav-link" href="#info">Info</a> -->
               <!-- <a class="nav-link" href="#story">Story</a>
               <a class="nav-link" href="#gallery">Gallery</a> -->
-              <a class="nav-link" href="#rsvp">RSVP</a>
+              <!-- <a class="nav-link" href="#rsvp">RSVP</a>
               <a class="nav-link" href="#gifts">Gifts</a>
             </div>
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
-    <section id="home" class="home">
+    <section id="home" class="home d-none">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 text-center">
@@ -101,7 +103,7 @@
           <div class="row couple mt-5">
             <div class="col-lg-6">
               <div class="row">
-                <div class="col-8 text-end">
+                <div class="col-8 text-end my-auto">
                   <h3>Benardi Wibowo</h3>
                   <!-- <p>Lorem ipsum</p> -->
                   <p>
@@ -127,7 +129,7 @@
                     class="img-responsive rounded-circle"
                   />
                 </div>
-                <div class="col-8">
+                <div class="col-8 my-auto">
                   <h3>Yohanna Marsella Santoso</h3>
                   <!-- <p>Lorem ipsum</p> -->
                   <p>
@@ -138,24 +140,24 @@
               </div>
             </div>
           </div>
-          <div class="text-center">
+          <!-- <div class="text-center">
             <div class="divider"></div>
             <h5>Counting down to the day</h5>
             <div class="simply-countdown"></div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
 
-    <section id="info" class="info">
+    <section id="info" class="info d-none">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-10 text-center">
-            <h2>Information</h2>
-            <p class="alamat">
+            <!-- <h2>Information</h2> -->
+            <!-- <p class="alamat">
               Gereja Katolik St.Paulus<br />Jl. Moch. Toha No.19-21,
               Pungkur, Kec. Regol, Kota Bandung
-            </p>
+            </p> -->
             <!-- <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6753279844365!2d107.6070709!3d-6.929355600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e8923d3cb4f5%3A0x76baa63fd43563ff!2sGereja%20Katolik%20Santo%20Paulus!5e0!3m2!1sen!2sid!4v1695394848400!5m2!1sen!2sid"
               width="100%"
@@ -165,12 +167,12 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe> -->
-            <a
+            <!-- <a
               href="https://goo.gl/maps/rWJjpAxRuDr1pNNL8"
               target="_blank"
               class="btn btn-sm ny-3 btn-light"
               >Click to open the map</a
-            >
+            > -->
             <!-- <p class="description">
               Diharapkan untuk tidak salah alamat dan tanggal
             </p> -->
@@ -179,17 +181,25 @@
         <div class="row justify-content-center mt-4">
           <div class="col-md-5 col-10">
             <div class="card text-center text-bg-light mb-5">
-              <div class="card-header">Holy Matrimony</div>
-              <div class="card-body">
+              <div class="card-header">
+                <h5><i class="fa-solid fa-church" style="color: #bdbc9e; font-size:40px"></i><br><br>Holy Matrimony</h5>
                 <div class="row justify-content-center">
-                  <div class="col-md-6">
-                    <i class="bi bi-clock d-block"></i>
-                    <span>11:30</span>
-                  </div>
-                  <div class="col-md-6">
-                    <i class="bi bi-calendar3 d-block"></i>
-                    <span>Saturday, 4 November 2023</span>
-                  </div>
+                  <div class="col-md-12">
+                    <div class="divider"></div>
+                    <p>Saturday, 4 November 2023</p>
+                    <p>11:30 AM</p>
+                    <div class="divider"></div>
+                    <p class="alamat">
+                      Gereja Katolik St.Paulus<br />Jl. Moch. Toha No.19-21,
+                      Pungkur, Kec. Regol, Kota Bandung
+                    </p>
+                    <a
+                      href="https://goo.gl/maps/rWJjpAxRuDr1pNNL8"
+                      target="_blank"
+                      class="btn btn-sm ny-3 btn-secondary"
+                      ><i class="bi bi-geo-alt-fill"></i> Direction
+                    </a>
+                </div>
                 </div>
               </div>
               <!-- <div class="card-footer">Saat acara....</div> -->
@@ -357,7 +367,7 @@
       </div>
     </section> -->
 
-    <section id="rsvp" class="rsvp">
+    <section id="rsvp" class="rsvp d-none">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-10 text-center">
@@ -401,7 +411,7 @@
           </div>
           <div class="col-12">
             <div class="mb-3">
-              <label for="status" class="form-label">Confirmation</label>
+              <label for="status" class="form-label">Will you be attending?</label>
               <select name="status" id="status" class="form-select">
                 <option selected>Choose</option>
                 <option value="hadir">Yes. I will attend</option>
@@ -413,45 +423,15 @@
             <button class="btn btn-primary">Send</button>
           </div>
         </form>
-        <div class="row justify-content-center mt-5">
-          <div class="col-md-6">
-            <div id="disqus_thread"></div>
-            <script>
-              /**
-               *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-               *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-
-              var disqus_config = function () {
-                this.page.url =
-                  "https://yohannams.github.io/by-invitation/"; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "04112023"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-              };
-
-              (function () {
-                // DON'T EDIT BELOW THIS LINE
-                var d = document,
-                  s = d.createElement("script");
-                s.src = "https://by-wedding.disqus.com/embed.js";
-                s.setAttribute("data-timestamp", +new Date());
-                (d.head || d.body).appendChild(s);
-              })();
-            </script>
-            <noscript
-              >Please enable JavaScript to view the
-              <a href="https://disqus.com/?ref_noscript"
-                >comments powered by Disqus.</a
-              ></noscript
-            >
-          </div>
-        </div>
+        
       </div>
     </section>
 
-    <section id="gifts" class="gifts">
+    <section id="gifts" class="gifts d-none">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-10 text-center">
-            <h2>Wedding Gifts</h2>
+            <h2>Wedding Gifts</h2><br>
             <!-- <span>If you would like to express your kind wishes by sending us a gift, please use the button bellow:</span> -->
           </div>
         </div>
@@ -481,7 +461,43 @@
       </div>
     </section>
 
-    <footer>
+    <!-- <section class="w-100 h-100"> 
+      <div class="container">
+      <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div id="disqus_thread"></div>
+        <script>
+          /**
+           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+          var disqus_config = function () {
+            this.page.url =
+              "https://yohannams.github.io/by-invitation/"; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "04112023"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+
+          (function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+              s = d.createElement("script");
+            s.src = "https://by-wedding.disqus.com/embed.js";
+            s.setAttribute("data-timestamp", +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript
+          >Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript"
+            >comments powered by Disqus.</a
+          ></noscript
+        >
+      </div>
+    </div>
+  </div>
+  </section> -->
+
+    <footer class="d-none">
       <div class="container">
         <div class="row">
           <div class="col text-center">
@@ -588,6 +604,14 @@
         rootElement.style.scrollBehavior = "smooth";
         //localStorage.setItem("opened", "true");
         playAudio();
+        document.querySelector("footer").classList.remove("d-none");
+        document.querySelector("#home").classList.remove("d-none");
+        document.querySelector("#info").classList.remove("d-none");
+        document.querySelector("#rsvp").classList.remove("d-none");
+        document.querySelector("#gifts").classList.remove("d-none");
+        document.querySelector("#home > div > div > div > h2").classList.add("animatedDiv");
+        document.querySelector("#home > div > div > div > p").classList.add("animatedDiv");
+        document.querySelector(".couple").classList.add("animatedDiv");
       }
 
       function playAudio() {
@@ -625,7 +649,7 @@
             method: "POST",
             body: data,
           }).then(() => {
-            alert("Konfirmasi kehadiran berhasil terkirim!");
+            alert("Attendance confirmation successfully sent!");
           });
         });
       });
