@@ -425,6 +425,38 @@ footer li {
   animation: fadeInUp 3s forwards;
 }
 
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* box */
+.animation-flip {
+  width: 40%;
+  height: 200px;
+  background: orange;
+  border-radius: 2px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+.a {
+  background-color: yellow;
+  margin: 80vh auto 0 auto;
+}
+
+.b {
+  margin: 40vh auto 0 auto;
+  background-color: yellow;
+}
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
