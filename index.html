@@ -770,7 +770,7 @@
       const nama = urlParams.get("to") || "";
       const pronoun = urlParams.get("p") || ""; //bpk ibu sdr
       const namaContainer = document.querySelector(".hero h4 span");
-      namaContainer.innerText = `${pronoun} ${nama},`.replace(/,$/, ",");
+      namaContainer.innerText = `${nama}`.replace(/,$/, ",");
 
       document.querySelector("#nama").value = nama;
     </script>
