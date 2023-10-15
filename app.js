@@ -813,7 +813,7 @@ const salin = (btn, msg = null, timeout = 1500) => {
   navigator.clipboard.writeText(btn.getAttribute("data-nomer"));
 
   let tmp = btn.innerHTML;
-  btn.innerHTML = msg ?? "Tersalin";
+  btn.innerHTML = msg ?? "Copied!";
   btn.disabled = true;
   let id = null;
 
