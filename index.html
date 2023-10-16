@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:image" content="img/favicon.png" />
     <title>Benardi & Yohanna Wedding</title>
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -43,9 +46,13 @@
     <link rel="stylesheet" href="style.css" />
     <!--custom js -->
     <script src="app.js"></script>
-    
   </head>
   <body>
+    <div class="spinner-container d-none">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <section
       id="hero"
       class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center"
@@ -485,7 +492,10 @@
                     width="150"
                     alt="bca"
                   />
-                  <p class="card-text mt-3 mb-0 fw-bold" style="font-size: 0.9rem">
+                  <p
+                    class="card-text mt-3 mb-0 fw-bold"
+                    style="font-size: 0.9rem"
+                  >
                     BCA
                   </p>
                   <p class="card-text mb-0" style="font-size: 0.9rem">
@@ -518,7 +528,10 @@
                     width="150"
                     alt="bca"
                   />
-                  <p class="card-text mt-3 mb-0 fw-bold" style="font-size: 0.9rem">
+                  <p
+                    class="card-text mt-3 mb-0 fw-bold"
+                    style="font-size: 0.9rem"
+                  >
                     BCA
                   </p>
                   <p class="card-text mb-0" style="font-size: 0.9rem">
@@ -541,7 +554,8 @@
               </div>
             </div>
             <span
-              >Your generosity is only outdone by your kindness<br>Thank you</span
+              >Your generosity is only outdone by your kindness<br />Thank
+              you</span
             >
           </div>
         </div>
@@ -753,23 +767,41 @@
       //}
     </script>
     <script>
+      document
+        .getElementById("btn-send")
+        .addEventListener("click", function () {
+          document
+            .querySelectorAll(".spinner-container")
+            .classList.remove("d-none");
+        });
       window.addEventListener("load", function () {
+        //document.querySelectorAll(".spinner-container").classList.remove("d-none");
         const form = document.getElementById("my-form");
         form.addEventListener("submit", function (e) {
           e.preventDefault();
 
-          // if(!$('#nama').val() || !$('#status').val() || !$('#jumlah').val()){
-          //   alert('The RSVP should not be empty');
-          // }else{
+          if (
+            !document.getElementById("nama").value ||
+            !document.getElementById("jumlah").value ||
+            document.getElementById("status").value == "Choose"
+          ) {
+            alert("The RSVP should not be empty");
+          } else {
+            document
+              .querySelector(".spinner-container")
+              .classList.remove("d-none");
             const data = new FormData(form);
             const action = e.target.action;
             fetch(action, {
               method: "POST",
               body: data,
             }).then(() => {
+              document
+                .querySelector(".spinner-container")
+                .classList.add("d-none");
               alert("Attendance confirmation successfully sent!");
             });
-          // }
+          }
         });
       });
     </script>
