@@ -169,7 +169,7 @@ body {
 
 .info {
   /* background-color: var(--bg); */
-  background-image: url(gypsophila.jpg);
+  /* background-image: url(img/gypsophila.jpg); */
   background-size: cover;
   background-position: center;
   color: white;
@@ -215,10 +215,14 @@ body {
 
 .story,
 .gallery,
-.rsvp,
-.gifts {
+.rsvp {
   padding-top: 10rem;
   padding-bottom: 8rem;
+}
+
+.gifts {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .story p,
@@ -241,9 +245,20 @@ body {
 }
 
 .gifts {
-  background-image: url(featured-image.jpg);
+  background-image: url(img/edit-image.png);
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  filter: opacity(0.4);
 }
 
 .timeline {
