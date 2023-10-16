@@ -177,9 +177,9 @@ body {
   padding-bottom: 6rem;
 }
 
-.info h5 {
-  /* font-family: "Great Vibes", cursive; */
-}
+/* .info h5 { */
+/* font-family: "Great Vibes", cursive; */
+/* } */
 
 .info .alamat {
   font-size: 1.1rem;
@@ -220,11 +220,6 @@ body {
   padding-bottom: 8rem;
 }
 
-.gifts {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
 .story p,
 .gallery p,
 .rsvp p,
@@ -245,20 +240,12 @@ body {
 }
 
 .gifts {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   background-image: url(img/edit-image.png);
   background-size: cover;
   background-position: center;
   position: relative;
-}
-.overlay {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  filter: opacity(0.4);
 }
 
 .timeline {
