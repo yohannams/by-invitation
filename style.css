@@ -107,7 +107,8 @@ body {
 .story h2,
 .gallery h2,
 .rsvp h2,
-.gifts h2 {
+.gifts h2,
+.greetings h2 {
   color: var(--pink);
   font-family: "Sacramento";
   font-size: 5rem;
@@ -227,10 +228,16 @@ body {
   font-size: 1.1rem;
   font-weight: 500;
 }
+.greetings p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+}
 
 .story span,
 .gallery span,
-.gifts span {
+.gifts span,
+.greetings span {
   text-transform: uppercase;
   color: #666;
   font-size: 0.9rem;
@@ -363,9 +370,14 @@ body {
   font-weight: 400;
 }
 
-.rsvp form label {
+.rsvp form label,
+.greetings form label {
   color: var(--darkgrey);
   font-weight: 600;
+}
+.greetings label {
+  font-size: 1rem;
+  color: var(--darkgrey);
 }
 
 .rsvp button {
@@ -475,6 +487,20 @@ footer li {
   justify-content: center;
   align-items: center;
   z-index: 1;
+}
+
+.greetings {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  /* background-image: url(img/bg-greetings.jpg);
+  background-size: cover;
+  background-position: center; */
+  /* background-color: #f5f4f6; */
+  position: relative;
+}
+
+.greetings form label {
+  font-size: 1.1rem;
 }
 
 @keyframes fadeInUp {

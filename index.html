@@ -68,6 +68,13 @@
         >
       </main>
     </section>
+    <!-- <form id="greetingForm">
+      <label for="name">Nama:</label>
+      <input type="text" id="name" required /><br />
+      <label for="message">Ucapan:</label><br />
+      <textarea id="message" required></textarea><br />
+      <button type="submit">Kirim Ucapan</button>
+    </form> -->
 
     <!-- <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
       <div class="container">
@@ -554,12 +561,97 @@
                 </div>
               </div>
             </div>
-            <span
-              >Your generosity is only outdone by your kindness<br />Thank
+            <span class="fw-semibold"
+              >Your generosity is only outdone by your kindness.<br />Thank
               you</span
             >
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="greetings" class="greetings d-none">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-10 text-center">
+            <h2>Guestbook</h2>
+            <br />
+            <span
+              >Leave us your beautiful wishes and most sincere prayers here as
+              we are so excited to embark on this new journey together:</span
+            >
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-md-6 col-10">
+            <div
+              class="card text-bg-light mb-5"
+              data-aos="zoom-in"
+              data-aos-anchor-placement="bottom-bottom"
+              data-aos-duration="1500"
+            >
+              <div class="card-header">
+                <!-- <form id="greetingForm">
+                  <label for="name">Nama:</label>
+                  <input type="text" id="name" required /><br />
+                  <label for="message">Ucapan:</label><br />
+                  <textarea id="message" required></textarea><br />
+                  <button type="submit">Kirim Ucapan</button>
+                </form> -->
+
+                <form
+                  id="greetingForm"
+                  class="row row-cols-md-auto g-3 align-items-center justify-content-center mb-3"
+                >
+                  <div class="col-md-12">
+                    <div>
+                      <label for="name" class="form-label">Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div>
+                      <label for="message" class="form-label">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        class="form-control"
+                        rows="3"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary w-100"
+                      id="btn-sendmsg"
+                    >
+                      <i class="bi bi-send"></i>
+                      Send
+                    </button>
+                  </div>
+                </form>
+                <div style="max-height: 400px; overflow: auto">
+                  <ul id="greetingList" class="list-group"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row justify-content-center text-center reveal">
+          <div class="col-md-12">
+            <div data-aos="fade-right">
+              
+            </div>
+          </div>
+        </div> -->
       </div>
     </section>
 
@@ -656,7 +748,6 @@
         <i class="bi bi-disc"></i>
       </div>
     </div>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
@@ -734,6 +825,7 @@
         document.querySelector("#info").classList.remove("d-none");
         document.querySelector("#rsvp").classList.remove("d-none");
         document.querySelector("#gifts").classList.remove("d-none");
+        document.querySelector("#greetings").classList.remove("d-none");
         document
           .querySelector("#home > div > div > div > h2")
           .classList.add("animatedDiv");
@@ -772,11 +864,11 @@
         .getElementById("btn-send")
         .addEventListener("click", function () {
           document
-            .querySelectorAll(".spinner-container")
+            .querySelector(".spinner-container")
             .classList.remove("d-none");
         });
       window.addEventListener("load", function () {
-        //document.querySelectorAll(".spinner-container").classList.remove("d-none");
+        //document.querySelector(".spinner-container").classList.remove("d-none");
         const form = document.getElementById("my-form");
         form.addEventListener("submit", function (e) {
           e.preventDefault();
@@ -840,6 +932,148 @@
 
       // To check the scroll position on page load
       reveal();
+    </script>
+    <script>
+      const gistID = "c99d9eeee1a788154e2c3b06f118883e"; // Gantikan dengan ID Gist Anda
+      const accessToken = "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"; // Gantikan dengan akses token Anda
+      const gistURL = `https://api.github.com/gists/${gistID}`;
+      var oldContent;
+      //nampilin greetings
+      document.addEventListener("DOMContentLoaded", function () {
+        const gistURL =
+          "https://api.github.com/gists/c99d9eeee1a788154e2c3b06f118883e"; // Gantikan dengan ID Gist Anda
+        fetch(gistURL)
+          .then((response) => response.json())
+          .then((data) => {
+            let greetingList = document.getElementById("greetingList");
+            let gistContent = data.files["greetings.txt"].content;
+            let greetings = gistContent.split("\n");
+            if (gistContent.trim() == "") {
+            } else {
+              greetings.forEach((greeting, index) => {
+                const name = greetings[index];
+                const msg = greetings[index + 1];
+
+                if (index % 2 == 0) {
+                  const listItem = document.createElement("li");
+                  listItem.classList.add("list-group-item");
+                  listItem.innerHTML = `<p class="mb-0 fw-semibold"><i class="bi bi-people-fill"></i> ${name}</p><label>${msg}</label>`;
+                  greetingList.appendChild(listItem);
+                }
+              });
+            }
+            oldContent = gistContent;
+            //console.log(oldContent);
+          })
+          .catch((error) => console.error("Error:", error));
+      });
+
+      document
+        .getElementById("btn-sendmsg")
+        .addEventListener("click", function () {
+          document
+            .querySelector(".spinner-container")
+            .classList.remove("d-none");
+        });
+
+      //submit message
+      document
+        .getElementById("greetingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const name = document.getElementById("name").value;
+          const message = document.getElementById("message").value;
+          var ulElement = document.getElementById("greetingList");
+          var liElements = ulElement.getElementsByTagName("li");
+          let newContent = `${name}\n${message}`;
+
+          // Mengambil data lama dari Gist
+          fetch(gistURL)
+            .then((response) => response.json())
+            .then((data) => {
+              greetingList = document.getElementById("greetingList");
+              //let gistContent = data.files["greetings.txt"].content;
+
+              //const oldContent = data.files["greetings.txt"].content || "";
+              //const gistContent = `${newContent}\n${oldContent}`;
+              //let gistContent;
+              console.log(oldContent);
+              if (oldContent.trim() == "" || oldContent == undefined) {
+                gistContent = `${newContent}`;
+              } else {
+                gistContent = `${newContent}\n${oldContent}`;
+              }
+              greetings = gistContent.split("\n");
+
+              // Mengunggah kembali ke Gist dengan data baru
+              fetch(gistURL, {
+                method: "PATCH",
+                headers: {
+                  Authorization: `token ${accessToken}`,
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  files: {
+                    "greetings.txt": {
+                      content: gistContent,
+                    },
+                  },
+                }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  alert("Message was sent successfully!");
+                  document
+                    .querySelector(".spinner-container")
+                    .classList.remove("d-none");
+
+                  document.getElementById("greetingList").innerHTML = "";
+
+                  //coba
+                  fetch(gistURL)
+                    .then((response) => response.json())
+                    .then((data) => {
+                      let newgreetingList =
+                        document.getElementById("greetingList");
+                      let newgistContent = data.files["greetings.txt"].content;
+                      //newgistContent = data lama
+                      if (newgistContent.trim() != "") {
+                        newgistContent = `${newContent}\n${newgistContent}`;
+                      } else {
+                        newgistContent = `${newContent}${newgistContent}`;
+                      }
+
+                      console.log(newgistContent);
+                      let newgreetings = newgistContent.split("\n");
+                      console.log(newgistContent);
+                      if (newgistContent.trim() == "") {
+                      } else {
+                        newgreetings.forEach((greeting, index) => {
+                          let name = newgreetings[index];
+                          let msg = newgreetings[index + 1];
+
+                          if (index % 2 == 0) {
+                            let listItem = document.createElement("li");
+                            listItem.classList.add("list-group-item");
+                            listItem.innerHTML = `<p class="mb-0 fw-semibold"><i class="bi bi-people-fill"></i> ${name}</p><label>${msg}</label>`;
+                            newgreetingList.appendChild(listItem);
+                          }
+                        });
+                      }
+                      document
+                        .querySelector(".spinner-container")
+                        .classList.add("d-none");
+                    })
+                    .catch((error) => console.error("Error:", error));
+                  //end coba
+                })
+                .catch((error) => console.error("Error:", error));
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+      //}
+
+      //showData();
     </script>
   </body>
 </html>
