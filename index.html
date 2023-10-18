@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:image" content="img/favicon.png" />
+    <meta
+      name="github-token"
+      content="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"
+    />
     <title>Benardi & Yohanna Wedding</title>
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="shortcut icon" href="img/favicon.png" type="image/png" />
@@ -570,7 +574,10 @@
     </script>
     <script>
       const gistID = "c99d9eeee1a788154e2c3b06f118883e"; // Gantikan dengan ID Gist Anda
-      const accessToken = "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"; // Gantikan dengan akses token Anda
+      //const accessToken = "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"; // Gantikan dengan akses token Anda
+      const accessToken = document
+        .querySelector('meta[name="github-token"]')
+        .getAttribute("content");
       const gistURL = `https://api.github.com/gists/${gistID}`;
       var oldContent;
       //nampilin greetings
