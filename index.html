@@ -338,6 +338,8 @@
               <div class="card-header">
                 <form
                   id="greetingForm"
+                  method="POST"
+                  action="https://script.google.com/macros/s/AKfycbw4tdVBY_O82TykIhbJl_h38efjy6doonff1g0l7-nsmE46M1Dk9gKrM-X5dZWmEsnBCw/exec"
                   class="row row-cols-md-auto g-3 align-items-center justify-content-center mb-3"
                 >
                   <div class="col-md-12">
@@ -573,6 +575,37 @@
       reveal();
     </script>
     <script>
+      document
+        .getElementById("btn-sendmsg")
+        .addEventListener("click", function () {
+          document
+            .querySelector(".spinner-container")
+            .classList.remove("d-none");
+        });
+      window.addEventListener("load", function () {
+        //document.querySelector(".spinner-container").classList.remove("d-none");
+        const form = document.getElementById("greetingForm");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          document
+            .querySelector(".spinner-container")
+            .classList.remove("d-none");
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: "POST",
+            body: data,
+          }).then(() => {
+            document
+              .querySelector(".spinner-container")
+              .classList.add("d-none");
+            alert("Message successfully sent!");
+          });
+        });
+      });
+    </script>
+    <!-- <script>
       const gistID = "c99d9eeee1a788154e2c3b06f118883e"; // Gantikan dengan ID Gist Anda
       //const accessToken = "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"; // Gantikan dengan akses token Anda
       const accessToken = document
@@ -698,6 +731,6 @@
       //}
 
       //showData();
-    </script>
+    </script> -->
   </body>
 </html>
