@@ -224,7 +224,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-10 text-center">
-            <h2 data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom">
+            <h2 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
               Wedding Gifts
             </h2>
             <br />
@@ -316,7 +316,13 @@
 
     <section id="greetings" class="greetings d-none">
       <div class="overlay"></div>
-      <div class="container">
+
+      <div
+        class="container"
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+        data-aos-duration="1500"
+      >
         <div class="row justify-content-center">
           <div class="col-md-6 col-10 text-center">
             <h2>Guestbook</h2>
@@ -329,12 +335,7 @@
         </div>
         <div class="row justify-content-center mt-4">
           <div class="col-md-6 col-10">
-            <div
-              class="card text-bg-light mb-5"
-              data-aos="zoom-in"
-              data-aos-anchor-placement="bottom-bottom"
-              data-aos-duration="1500"
-            >
+            <div class="card text-bg-light mb-5">
               <div class="card-header">
                 <form
                   id="greetingForm"
@@ -402,6 +403,7 @@
         <i class="bi bi-disc"></i>
       </div>
     </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
@@ -540,6 +542,9 @@
         });
       });
     </script>
+    <script type="module">
+      import { Octokit } from "https://esm.sh/@octokit/core";
+    </script>
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const nama = urlParams.get("to") || "";
@@ -575,162 +580,89 @@
       reveal();
     </script>
     <script>
+      //nampilin
+      fetch(
+        "https://script.google.com/macros/s/AKfycbwDtU4dQahRKddtW-bFg5m_cDrt3dyHoCern1GIQjxINM3cKdsvjRCh4hvnQ98UwBSVEQ/exec"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          function displayData(data) {
+            const dataList = document.getElementById("greetingList");
+
+            data.data
+              .sort((a, b) => data.data.indexOf(b) - data.data.indexOf(a))
+              .forEach((item) => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("list-group-item");
+                listItem.innerHTML = `<p class="mb-0 fw-semibold"><i class="bi bi-people-fill"></i> ${item.name}</p><label>${item.message}</label>`;
+                dataList.appendChild(listItem);
+              });
+          }
+
+          // Jalankan fungsi untuk menampilkan data
+          displayData(data);
+        })
+        .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
       document
         .getElementById("btn-sendmsg")
         .addEventListener("click", function () {
-          document
-            .querySelector(".spinner-container")
-            .classList.remove("d-none");
-        });
-      window.addEventListener("load", function () {
-        //document.querySelector(".spinner-container").classList.remove("d-none");
-        const form = document.getElementById("greetingForm");
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          document
-            .querySelector(".spinner-container")
-            .classList.remove("d-none");
-          const data = new FormData(form);
-          const action = e.target.action;
-          fetch(action, {
-            method: "POST",
-            body: data,
-          }).then(() => {
+          if (
+            !document.getElementById("name").value ||
+            !document.getElementById("message").value
+          ) {
+            alert("The guestbook should not be empty");
+          } else {
             document
               .querySelector(".spinner-container")
-              .classList.add("d-none");
-            alert("Message successfully sent!");
-          });
-        });
-      });
-    </script>
-    <!-- <script>
-      const gistID = "c99d9eeee1a788154e2c3b06f118883e"; // Gantikan dengan ID Gist Anda
-      //const accessToken = "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"; // Gantikan dengan akses token Anda
-      const accessToken = document
-        .querySelector('meta[name="github-token"]')
-        .getAttribute("content");
-      const gistURL = `https://api.github.com/gists/${gistID}`;
-      var oldContent;
-      //nampilin greetings
-      document.addEventListener("DOMContentLoaded", function () {
-        const gistURL =
-          "https://api.github.com/gists/c99d9eeee1a788154e2c3b06f118883e"; // Gantikan dengan ID Gist Anda
-        fetch(gistURL)
-          .then((response) => response.json())
-          .then((data) => {
-            let greetingList = document.getElementById("greetingList");
-            let gistContent = data.files["greetings.txt"].content;
-            let greetings = gistContent.split("\n");
-            if (gistContent.trim() == "") {
-            } else {
-              greetings.forEach((greeting, index) => {
-                const name = greetings[index];
-                const msg = greetings[index + 1];
+              .classList.remove("d-none");
+            const form = document.getElementById("greetingForm");
+            form.addEventListener("submit", function (e) {
+              e.preventDefault();
 
-                if (index % 2 == 0) {
-                  const listItem = document.createElement("li");
-                  listItem.classList.add("list-group-item");
-                  listItem.innerHTML = `<p class="mb-0 fw-semibold"><i class="bi bi-people-fill"></i> ${name}</p><label>${msg}</label>`;
-                  greetingList.appendChild(listItem);
-                }
-              });
-            }
-            oldContent = gistContent;
-            //console.log(oldContent);
-          })
-          .catch((error) => console.error("Error:", error));
-      });
-
-      document
-        .getElementById("btn-sendmsg")
-        .addEventListener("click", function () {
-          //document.querySelector(".spinner-container").classList.remove("d-none");
-        });
-
-      //submit message
-      document
-        .getElementById("greetingForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-          const name = document.getElementById("name").value;
-          const message = document.getElementById("message").value;
-          const newContent = `${name}\n${message}`;
-
-          try {
-            const response = await fetch(gistURL);
-            let data = await response.json();
-            let oldContent = data.files["greetings.txt"].content || "";
-            let gistContent = oldContent
-              ? `${newContent}\n${oldContent}`
-              : newContent;
-
-            const uploadResponse = await fetch(gistURL, {
-              method: "PATCH",
-              headers: {
-                Authorization: `token ${accessToken}`,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                files: {
-                  "greetings.txt": {
-                    content: gistContent,
-                  },
-                },
-              }),
-            });
-
-            const uploadData = await uploadResponse.json();
-
-            alert("Message was sent successfully!");
-            document.getElementById("greetingList").innerHTML = "";
-            document.querySelector("#message").value = "";
-
-            //coba refresh element
-            fetch(gistURL)
-              .then((response) => response.json())
-              .then((data) => {
-                let newgreetingList = document.getElementById("greetingList");
-                let newgistContent = data.files["greetings.txt"].content;
-                //newgistContent = data lama
-                if (newgistContent.trim() != "") {
-                  newgistContent = `${newContent}\n${oldContent}`;
-                } else {
-                  newgistContent = `${newContent}${oldContent}`;
-                }
-                //gistContent = newgistContent;
-
-                let newgreetings = newgistContent.split("\n");
-                console.log(newgistContent);
-                oldContent = newgistContent;
-                if (newgistContent.trim() == "") {
-                } else {
-                  newgreetings.forEach((greeting, index) => {
-                    let name = newgreetings[index];
-                    let msg = newgreetings[index + 1];
-
-                    if (index % 2 == 0) {
-                      let listItem = document.createElement("li");
-                      listItem.classList.add("list-group-item");
-                      listItem.innerHTML = `<p class="mb-0 fw-semibold"><i class="bi bi-people-fill"></i> ${name}</p><label>${msg}</label>`;
-                      newgreetingList.appendChild(listItem);
-                    }
-                  });
-                }
+              document
+                .querySelector(".spinner-container")
+                .classList.remove("d-none");
+              const data = new FormData(form);
+              const action = e.target.action;
+              fetch(action, {
+                method: "POST",
+                body: data,
+              }).then(() => {
                 document
                   .querySelector(".spinner-container")
                   .classList.add("d-none");
-              })
-              .catch((error) => console.error("Error:", error));
-            //end coba
-          } catch (error) {
-            console.error("Error:", error);
+                alert("Message successfully sent!");
+                document.querySelector("#message").value = "";
+                fetch(
+                  "https://script.google.com/macros/s/AKfycbwDtU4dQahRKddtW-bFg5m_cDrt3dyHoCern1GIQjxINM3cKdsvjRCh4hvnQ98UwBSVEQ/exec"
+                )
+                  .then((response) => response.json())
+                  .then((data) => {
+                    function displayData(data) {
+                      const dataList = document.getElementById("greetingList");
+                      document.getElementById("greetingList").innerHTML = "";
+                      data.data
+                        .sort(
+                          (a, b) => data.data.indexOf(b) - data.data.indexOf(a)
+                        )
+                        .forEach((item) => {
+                          const listItem = document.createElement("li");
+                          listItem.classList.add("list-group-item");
+                          listItem.innerHTML = `<p class="mb-0 fw-semibold"><i class="bi bi-people-fill"></i> ${item.name}</p><label>${item.message}</label>`;
+                          dataList.appendChild(listItem);
+                        });
+                    }
+
+                    // Jalankan fungsi untuk menampilkan data
+                    displayData(data);
+                  })
+                  .catch((error) => console.error("Error:", error));
+              });
+            });
           }
         });
-      //}
-
-      //showData();
-    </script> -->
+    </script>
   </body>
 </html>
